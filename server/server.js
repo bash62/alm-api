@@ -1,36 +1,58 @@
+require('dotenv').config();
+require('./src/strategies/discord');
+
+
+
 const express = require('express');
-const dofus = require("./src/routes/dofus.js");
-const views = require("./src/routes/views.js")
-const path = require('path');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const Store = require('connect-mongo');
+//const dofus = require("./src/routes/almanax.js");
+//const views = require("./src/routes/views.js")
+//const path = require('path');
 
 
 const app = express();// Setup server port
-
-app.use(express.static('public'));
-app.use('/css', express.static(__dirname + 'public/styles'))
-
-app.set('views', './src/views');
-app.set('view engine', 'ejs');
-
-const port = process.env.PORT || 5000;// parse requests of content-type - application/x-www-form-urlencoded
-
+const port = process.env.PORT || 3002;// parse requests of content-type - application/x-www-form-urlencoded
+const routes = require('./src/routes');
 
 
 app.use(express.urlencoded({ extended: true }))// parse requests of content-type - application/json
 app.use(express.json())// define a root route
 
 
+//Database connection
 
+mongoose.connect(process.env.DB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+
+app.use(session({
+  name: 'discord-connect.sid',
+  secret: 'giohregioferhgi',
+  cookie: {
+    maxAge: 60000 * 60 * 24 ,
+  },
+  resave: false,
+  saveUninitialized: false,
+  store: Store.create({mongoUrl: process.env.DB_URI})
+}))
+
+
+
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routing
 
+app.use('/api',routes);
 
-app.use("/almanax",dofus)
 
-app.get('/',(req,res)=>{
-  res.render('index')
-});
-
+//app.use("/almanax",dofus)
 //app.use("/touch/:lang",touch)
 
 app.listen(port, () => {
