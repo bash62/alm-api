@@ -3,7 +3,9 @@ const DiscordStrategy = require('passport-discord');
 const User = require('../models/database/schemas/User')
 
 passport.serializeUser((user, done) => {
+
     try {
+        console.log(user.discord.discordId)
         done(null, user.discordId);
         
     } catch (error) {
@@ -12,11 +14,12 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser( async (discordId, done) => {
+
     try {
-        const user = await User.findOne({ discordId});
+
+        const user = await User.findOne({ discordId: discordId});
         return user ? done(null, user) : done(null,null);
     } catch(err) {
-        console.log(err);
         done(err,null);
     }
 })
@@ -27,26 +30,31 @@ passport.use( new DiscordStrategy({
     callbackURL: process.env.DASHBOARD_CALLBACK_URI,
     scope: ['identify','email'],
 }, async(accessToken, refreshToken, profile, done) => {
-    console.log(accessToken)
 
     try {
         const { id, username, discriminator, avatar,email, verified} = profile;
 
-        const findUser = await User.findOneAndUpdate({discordId: id}, {
-            discordTag: `${username}#${discriminator}`,
-            avatar,
+        const findUser = await User.findOneAndUpdate({discordId: id },
+            {
+            discord : {
+                discordTag: `${username}#${discriminator}`,
+                avatar,
+            }
         }, {new: true});
         if(findUser) {
-            console.log( ' User was found ');
+            console.log( ' User was found ',findUser);
             return done(null, findUser);
         }
         else{
             if(!verified) return done(null, null);
             const newUser = await User.create({
                 discordId: id,
-                discordTag: `${username}#${discriminator}`,
-                avatar,
-                email,
+                discord: {
+                    discordTag: `${username}#${discriminator}`,
+                    avatar,
+                    email,
+                }
+
             });
             console.log("User created");
             return done(null, newUser);
