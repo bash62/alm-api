@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Typewriter } from 'react-simple-typewriter';
-import Photo_left from '../../assets/card-bg-left.png'
-import Photo from '../../assets/card-bg.png'
+
 import Boss from '../../assets/bossminia.png'
 import Metier from '../../assets/metier.png'
 import Avatar from '../../assets/class_img.png'

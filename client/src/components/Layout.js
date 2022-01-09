@@ -3,7 +3,6 @@ import Header from "./Header";
 import Bg from '../assets/hero.jpg'
 import HomePage from './HomePage';
 import Footer from "./Footer";
-import Arrow from "../assets/arrow.png"
 
 const LandingPageLayout = ({
     heading,
