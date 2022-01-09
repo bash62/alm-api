@@ -10,10 +10,19 @@ module.exports = {
     
     },
       animation: {
+        infinite_logo: " infinite_logo 1s infinite",
         background: "background 5s infinite",
         dofus: "dofus linear 0.3s 1",
       },
       keyframes: {
+        infinite_logo: {
+          "0%":{
+            transform: "translateX(0)"
+          },
+          "100%":{
+            transform: "translateX(calc(-250px*6))"
+          },
+        },
         dofus: {
           "0%": {
             transform: "translate(0,-300px)"

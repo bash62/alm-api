@@ -1,6 +1,6 @@
 import React,{Component, useState} from "react";
 import {Link} from 'react-router-dom';
-
+import Bannier from '../assets/banieretest-1.png'
 import Dofus from '../assets/dofus_sanguinaire.png'
 
 
@@ -13,7 +13,8 @@ const Header = ({
         setActive(!active);
     }
     return(
-        <header className="bg-sky-700 relative ">
+        <header className="relative bg-yellow-400">
+            
             <div className="max-w-7xl mx-auto flex items-center justify-between p-2.5 ">
             <div className="w-14">
                 <img src={Dofus} className="w-full"/>
@@ -25,18 +26,18 @@ const Header = ({
             </div>
             <nav className={`
                 ${!active && 'hidden'}
-                absolute flex flex-col bg-sky-700 top-full w-full left-0 z-20
+                absolute flex flex-col top-full w-full left-0 z-20
                 md:static md:w-auto md:flex-row md:flex
             `}>
                 <ul className="md:flex-row md:flex ">
                     <li className="list-none md:mr-5">
-                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5">Passage</Link>
+                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5 font-black subpixel-antialiased">Passage</Link>
                     </li>
                     <li className="list-none md:mr-5">
-                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5">Passage</Link>
+                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5 font-black subpixel-antialiased">KIT</Link>
                     </li>
                     <li className="list-none md:mr-5">
-                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5">Passage</Link>
+                        <Link to="/" className="flex w-full text-base uppercase hover:text-red-600 cursor-pointer pt-2.5 px-2.5 font-black subpixel-antialiased">Mes services</Link>
                     </li>
                 </ul>
             </nav>

@@ -11,7 +11,7 @@ function App() {
     <Router>
 
       <Routes>
-        <Route path="/" element={ <LandingPageLayout heading="Passage dofus"></LandingPageLayout>}>
+        <Route path="/" element={ <LandingPageLayout heading="Passage"></LandingPageLayout>}>
 
         </Route>
       </Routes>
