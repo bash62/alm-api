@@ -88,7 +88,7 @@ const Cards = ({
 
                             <div className=" bg-white h-auto ">
                                 <div className=" flex relative -py-1">
-                                <img src="https://static.ankama.com/dofus/www/game/achievements/45.png" className="h-16 md:h-24  m-4 md:m-6 rounded-full justify-center "/>
+                                <img src="https://static.ankama.com/dofus/www/game/monsters/200/31.png" className="h-16 md:h-24  m-4 md:m-6 rounded-full justify-center "/>
 
                                     <div className="flex  ">
                                         <div className="-my-1 md:my-4">
@@ -117,7 +117,7 @@ const Cards = ({
                                             </tr>
                                         </thead>
                                         <tbody class="divide-y divide-gray-100">
-                                            <tr className="bg-gray-50 ">
+                                            <tr className="bg-gray-50 hover:bg-gray-400 cursor-pointer ">
                                                 <td className="p-3 text-sm text-gray-700 "><img className="" src={Avatar}/></td>
                                                 <td className=" text-sm text-gray-700 font-bold text-blue-500 hover:underline"><Link to="/">Tece</Link></td>
                                                 <td className=" text-sm text-gray-700 flex py-9 ">500.000<img className="max-h-5" src={Kamas}/></td>
