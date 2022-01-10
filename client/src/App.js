@@ -17,9 +17,9 @@ class App extends Component {
       user: null,
     }
   }
-
+  // Check if user is connected 
   checkLoginStatus() {
-    Axios.get('http://localhost:3001/api/auth/user', { withCredentials: true })
+    Axios.get('http://localhost:3001/api/user', { withCredentials: true })
     .then(response => {
       this.setState({
         loggedInStatus: true,
@@ -46,7 +46,7 @@ class App extends Component {
         <Routes >
           <Route path="/login" lang="FR" element={ <Login></Login>}></Route>
           <Route path="/test" element={ <Test user={this.state.user} auth={this.state.loggedInStatus} ></Test>}></Route>
-          <Route path="/setup" element={ <Setup user={this.state.user} auth={this.state.loggedInStatus} ></Setup>}></Route>
+          <Route path="/setup" element={ <Setup user={this.state.user} auth={this.state.loggedInStatus} checkLoginStatus={() => this.checkLoginStatus()} ></Setup>}></Route>
           <Route path="/" element={ <LandingPageLayout user={this.state.user} auth={this.state.loggedInStatus} heading="Passage"></LandingPageLayout>}></Route>
 
         </Routes>

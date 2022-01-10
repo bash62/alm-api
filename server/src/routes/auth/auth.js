@@ -8,12 +8,6 @@ router.get('/discord/redirect', passport.authenticate('discord', {
     successRedirect: 'http://localhost:3000',
 }));
 
-router.get('/user', (req,res)=>{
-    if(req.user){
-        res.send(req.user);
-    } else{
-        res.status(401).send({msg: "Unauthorized"});
-    }
-})
+
 
 module.exports = router;

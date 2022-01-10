@@ -42,7 +42,7 @@ export const Login = ({
                             <div className="">
                                 
                                 <div className="relative bg-indigo-400 rounded-md hover:animate-pulse ">
-                                <button onClick={() => handleClick} className="relative w-full h-14"><a className="w-full" href="http://localhost:3001/api/auth/discord/redirect">{w.DISCORD_CARDS_BUTTON}</a></button> 
+                                <button onClick={() => handleClick()} className="relative w-full h-14"><a className="w-full" href="http://localhost:3001/api/auth/discord/redirect">{w.DISCORD_CARDS_BUTTON}</a></button> 
 
                                 </div>
                             </div>

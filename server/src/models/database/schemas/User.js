@@ -32,6 +32,11 @@ const UserSchema = new mongoose.Schema({
             default: 0,
             max: 4,
         },
+        completed: {
+            type: Boolean,
+            required: true,
+            default: false,
+        }
     },
     userState: {
         aliveOrder: {

@@ -5,7 +5,6 @@ const User = require('../models/database/schemas/User')
 passport.serializeUser((user, done) => {
 
     try {
-        console.log(user.discord.discordId)
         done(null, user.discordId);
         
     } catch (error) {

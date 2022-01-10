@@ -4,9 +4,12 @@ import {SetupFirstPage } from './SetupFirstPage';
 import useFetch from "../../models/useFetch";
 
 const Setup = ({ ...props }) => {
+
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(null);
+  const [reload, setReload] = useState();
   const {
     data: w,
     loading: l,
@@ -25,6 +28,8 @@ const Setup = ({ ...props }) => {
     }
   }, [props]);
 
+ 
+
   if (loading) {
     return <div>loading...</div>;
   }
@@ -38,10 +43,28 @@ const Setup = ({ ...props }) => {
 
     if (e) console.log(e);
 
-    return (
-          <SetupFirstPage user={user} lang={w.ONE}></SetupFirstPage>
-     
-    );
+  
+    if(props.user.userRegisterState.stage === 0){
+      return (
+        <SetupFirstPage user={user} lang={w.ONE} ></SetupFirstPage>
+        );
+    }
+
+    else if(props.user.userRegisterState.stage === 1){
+      return (
+        <div>1...</div>
+        );
+    }
+    if(props.user.userRegisterState.stage === 2){
+      return (
+        <SetupFirstPage user={user} lang={w.ONE}></SetupFirstPage>
+        );
+    }
+    
+    return <div>ERROR...</div>
+    
+
+
   }
 };
 

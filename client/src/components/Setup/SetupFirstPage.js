@@ -1,24 +1,52 @@
+import Axios from "axios";
 import React, { useEffect,useState } from "react";
-
+import { Navigate } from "react-router-dom";
+import App from '../../App'
 
 export const SetupFirstPage = ({ ...props }) => {
-    console.log(props)
     const [w,setLang] = useState(null);
     const [loading,setLoading] = useState(true);
     const [username,setUsername] = useState("")
+    const [validate, setValidate] = useState(false);
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
-        console.log(username)
         setLoading(true);
         if(props.lang !== undefined && Object.entries(props.lang).length > 0 ){
             setLoading(false);
             setLang(props.lang);
         }
-      }, [props]);
+        if(validate){
+            
+            console.log("validated!!")
+            
+            setValidate(false);
+        }
+      }, [props, validate]);
     
-      if (loading) {
+      
+     
+      const onClickHandle =  () => {
+        Axios.post('http://localhost:3001/api/user/update/setup/0',{username: username}, { withCredentials: true })
+        .then( (res) => {
+            setValidate(true);
+            
+        })
+        .catch((err)=>{
+            setMessage(err.response.data.message)
+            
+        })
+
+      };
+    if (loading) {
         return <div>loading...</div>;
-      }
+    }
+    if(validate){
+        
+        
+        
+    }
+  
 
   return (
 
@@ -57,10 +85,12 @@ export const SetupFirstPage = ({ ...props }) => {
             </div>
             <div className="flex  text-center justify-center">
                 <div className="px-12 mt-12 z-30 bg-indigo-400 text-white rounded-md hover:animate-pulse ">
-                    <button className=" text-2xl h-14">{w.SETUP_BUTTON}</button> 
+                    <button onClick={() => onClickHandle()} className=" text-2xl h-14">{w.SETUP_BUTTON}</button> 
                 </div>
             </div>
-
+            <div className="flex  text-center justify-center">
+                <div className="text-xl text-red-400 mt-5">{message}</div>
+            </div>
         </div>
       </div>
     </div>
