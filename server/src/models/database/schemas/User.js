@@ -60,10 +60,13 @@ const UserSchema = new mongoose.Schema({
             type: String,
             required: false,
             default: "",
-        }
+        },
+        serveur: {
+            type: Array,
+            required: false,
+            default: [],
+        } 
     },
-
-
     passageId: {
         type: Array,
         required: true,
@@ -79,10 +82,6 @@ const UserSchema = new mongoose.Schema({
         required: true,
         default: [],
     },
-
-
-
-
 })
 
 

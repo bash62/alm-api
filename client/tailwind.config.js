@@ -13,8 +13,18 @@ module.exports = {
         infinite_logo: " infinite_logo 1s infinite",
         background: "background 5s infinite",
         dofus: "dofus linear 0.3s 1",
+        discord_loop: "discord_loop 1s ease 0s 1 normal forwards"
       },
       keyframes: {
+        discord_loop: {
+          "0%": {
+            transform: "rotate(0)"
+          },
+        
+          "100%": {
+            transform: "rotate(360deg)"
+          }
+        },
         infinite_logo: {
           "0%":{
             transform: "translateX(0)"

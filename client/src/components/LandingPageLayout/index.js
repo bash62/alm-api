@@ -1,13 +1,44 @@
-import React  from "react";
-import Header from "./Header";
-import Bg from '../assets/hero.jpg'
-import HomePage from './HomePage';
-import Footer from "./Footer";
+import React, {useState, useEffect, Component} from "react";
+import {Navigate} from 'react-router-dom';
+
+import Header from "../Header";
+import Bg from '../../assets/hero.jpg'
+import HomePage from '../HomePage';
+import Footer from "../Footer";
+
 
 const LandingPageLayout = ({
     heading,
-    ...otherProps
+    ...props
 }) => {
+    const [user,setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [loggedIn,setLoggedIn] = useState(null);
+    
+    useEffect(() => {
+
+        setLoading(true);
+        if(props.user === "unauthorized"){
+            setLoading(false);
+            setLoggedIn(false);
+        }
+        else if(props.user !== null){
+            setLoading(false);
+            setLoggedIn(true);
+            setUser(props.user);
+        }
+
+    }, [props]);
+
+    if(loading){
+        return <div>loading...</div>
+    }
+    
+    if(loggedIn){
+        
+        return <Navigate to="/setup">unauthorized</Navigate>
+    }
+    else{
     return (
         <div className="min-h-full bg-gray-100 font-body">
             <div className="h-screen flex flex-col">
@@ -30,12 +61,12 @@ const LandingPageLayout = ({
             </div>
 
             <div className="w-full max-w-7xl mx-auto">
-                {otherProps.children}
+                {props.children}
             </div>
         <HomePage/>
         <Footer/>
         </div>
-    )
+    )}
 }
 
 LandingPageLayout.defaultProps = 'Heading';

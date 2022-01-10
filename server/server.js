@@ -8,14 +8,10 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const Store = require('connect-mongo');
-//const dofus = require("./src/routes/almanax.js");
-//const views = require("./src/routes/views.js")
-//const path = require('path');
-
 
 const app = express();// Setup server port
 const port = process.env.PORT || 3002;// parse requests of content-type - application/x-www-form-urlencoded
-const routes = require('./src/routes');
+const Authenticated_routes = require('./src/routes');
 
 
 app.use(express.urlencoded({ extended: true }))// parse requests of content-type - application/json
@@ -49,7 +45,7 @@ app.use(passport.session());
 
 //Routing
 
-app.use('/api',routes);
+app.use('/api',Authenticated_routes);
 
 
 //app.use("/almanax",dofus)

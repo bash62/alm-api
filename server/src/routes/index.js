@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const auth = require('./auth');
-const discord = require('./discord');
+const auth = require('./auth/auth');
+const client = require('./unauth/client');
 
 router.use('/auth', auth );
-router.use('/discord',discord);
+router.use('/client',client);
 
 module.exports = router;

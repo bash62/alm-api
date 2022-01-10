@@ -6,7 +6,7 @@ const {
     getByDate,
 
     
-} = require("../controllers/almanax");
+} = require("../../controllers/almanax");
 
 
 router.get("/:plateforme/:lang/today",getToday);

@@ -115,7 +115,7 @@ const Cards = ({
                                                 <th className="p-3 text-sm font-semibold tracking-wide text-left w-16 "><img className="max-h-10" src={Kill}/></th>
                                             </tr>
                                         </thead>
-                                        <tbody class="divide-y divide-gray-100">
+                                        <tbody className="divide-y divide-gray-100">
                                             <tr className="bg-gray-50 hover:bg-gray-400 cursor-pointer ">
                                                 <td className="p-3 text-sm text-gray-700 "><img className="" src={Avatar}/></td>
                                                 <td className=" text-sm text-gray-700 font-bold text-blue-500 hover:underline"><Link to="/">Tece</Link></td>
@@ -216,7 +216,7 @@ const Cards = ({
                                                 <th className="p-3 text-sm font-semibold tracking-wide text-left w-16 "><img className="max-h-10" src={Kill}/></th>
                                             </tr>
                                         </thead>
-                                        <tbody class="divide-y divide-gray-100">
+                                        <tbody className="divide-y divide-gray-100">
                                             <tr className="bg-gray-50 ">
                                                 <td className="p-3 text-sm text-gray-700 "><img className="" src={Avatar}/></td>
                                                 <td className=" text-sm text-gray-700 font-bold text-blue-500 hover:underline"><Link to="/">Tece</Link></td>
@@ -317,7 +317,7 @@ const Cards = ({
                                                 <th className="p-3 text-sm font-semibold tracking-wide text-left w-16 "><img className="max-h-10" src={Kill}/></th>
                                             </tr>
                                         </thead>
-                                        <tbody class="divide-y divide-gray-100">
+                                        <tbody className="divide-y divide-gray-100">
                                             <tr className="bg-gray-50 ">
                                                 <td className="p-3 text-sm text-gray-700 "><img className="" src={Avatar}/></td>
                                                 <td className=" text-sm text-gray-700 font-bold text-blue-500 hover:underline"><Link to="/">Tece</Link></td>
