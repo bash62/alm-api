@@ -19,7 +19,7 @@ export const Login = ({
     const {data: w, loading, error} = useFetch("http://localhost:3001/api/client/lang/LOGIN/FR")
 
 
-    if (loading || w === {}) return(<div></div>)
+    if (loading || w === {}) return(<div>Loading...</div>)
     if (error) console.log(error)
 
     return (

@@ -3,5 +3,12 @@
         "DISCORD_CARDS_TITLE" : "Prêt à commencer ?",
         "DISCORD_CARDS_TEXT" : "Pour continuer, inscrit toi simplement à l'aide de discord !",
         "DISCORD_CARDS_BUTTON" : "Se connecter"
-    }
+    },
+    "SETUP" : {
+        "ONE": {
+            "SETUP_TITLE" : "Quelle est le nom de votre personnage ingame ?",
+            "SETUP_TEXT" : "fe",
+            "SETUP_BUTTON" : "Continuer"
+                }
+            }   
 }
