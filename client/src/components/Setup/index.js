@@ -6,6 +6,7 @@ import {SetupFlag } from './SetupFlag';
 import useFetch from "../../models/useFetch";
 import SetupLoading from "./SetupLoading";
 import SetupServers from "./SetupServers";
+import SetupEnd from "./SetupEnd";
 
 const Setup = ({ ...props }) => {
 
@@ -74,6 +75,11 @@ const Setup = ({ ...props }) => {
     else if(props.user.userRegisterState.stage === 3){
       return (
         <SetupServers user={user} lang={w.SERVER} reload={setReload}></SetupServers>
+        );
+    }
+    else if(props.user.userRegisterState.stage === 4){
+      return (
+        <SetupEnd user={user} lang={w.SERVER} reload={setReload}></SetupEnd>
         );
     }
     

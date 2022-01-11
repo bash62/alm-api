@@ -10,26 +10,47 @@ import SetupLoading from "./SetupLoading";
 import SetupBackground from './SetupBackground';
 
 const SetupServers = ({ ...props }) => {
+
+  let servers = [
+    {name: "JAHASH", selected:false},
+    {name: "ILLY", selected:false}
+
+  ]
+
   const [w, setLang] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [profile, setprofile] = useState("");
   const [message, setMessage] = useState("");
   const [flag, setFlag] = useState("");
-  const [selected, setSelected] = useState(false);
-
+  const [active, setActive] = useState(false);
+  const [selected, setSelected] = useState(servers);
+ 
+  
   useEffect(() => {
     setLoading(true);
     if (props.lang !== undefined && Object.entries(props.lang).length > 0) {
       setLoading(false);
       setLang(props.lang);
-      
     }
-  }, [props]);
+
+  }, [props,  selected]);
+
+  const isServerSelected = () =>{
+    if(active){
+      return;
+    }
+    selected.forEach(e => {
+      if(e.selected){
+        setActive(true);
+        return;
+      }
+    });
+    setActive(false);
+  }
 
   const onClickHandle = () => {
     Axios.post(
-      "http://localhost:3001/api/user/update/setup/2",
-      { lang: flag },
+      "http://localhost:3001/api/user/update/setup/3",
+      { servers: selected },
       { withCredentials: true }
     )
       .then((res) => {
@@ -44,16 +65,28 @@ const SetupServers = ({ ...props }) => {
   };
 
   const onFlagClick = (e) => {
-        console.log(e.id)
+        
+        const selectedTemp = selected;
+        selectedTemp.map(x => {
+          if(x.name === e.id){
+            x.selected = !x.selected;
+          }
+          else{
+            x.selected = false;
+          }
+        })
+        setSelected(selectedTemp);
+        
+
         if(flag === e.id){
             setFlag("");
-            setSelected(false);
-
+            setActive(false)
         }
         else{
             setFlag(e.id);
-            setSelected(true);
+            setActive(true);
         }
+        console.log(selected)
   }
 
   if (loading) {
@@ -83,14 +116,20 @@ const SetupServers = ({ ...props }) => {
           </h1>
         </div>
 
-        <div className=" grid md:flex text-center items-center justify-center mb-8">
+        <div className="relative grid md:flex-cols-1 grid-flow-col flex text-center items-center justify-center mb-8">
+            <div>
+                <div className={`text-black font-bold text-2xl ${selected[0].selected} ? 'opacity-0' : ''}  `}>Jahash</div>
+                <img className={`h-28 md:h-32 rounded-lg xl:h-1/5 max-h-48 md:mx-4 drop-shadow-2xl cursor-pointer  ${flag === "JAHASH" ? 'opacity-80 scale-95' : 'hover:scale-105' }`} onClick={ (e)=> onFlagClick(e.target)} id="JAHASH" src={JAHASH} alt="Jahash"></img>
+            </div>
 
-            <img  className={`h-28 md:h-32 xl:h-48 my-8 rounded-lg xl:h-1/5 max-h-48 md:mx-4 drop-shadow-2xl cursor-pointer  ${flag == "JAHASH" ? 'opacity-80 scale-95' : 'hover:scale-105' }`} onClick={ (e)=> onFlagClick(e.target)} id="JAHASH" src={JAHASH}></img>
-            <img  className={`h-28 md:h-32 rounded-lg xl:h-1/5 max-h-48 md:mx-4 drop-shadow-2xl cursor-pointer  ${flag == "ILLY" ? 'opacity-80 scale-95' : 'hover:scale-105' } `} onClick={(e)=> onFlagClick(e.target)} id="ILLY" src={ILLY}></img>
+            <div >
+                <div className="text-black text-2xl font-bold  " >Illyzael</div>
+                <img  className={`h-28 md:h-32 rounded-lg xl:h-1/5 max-h-48 md:mx-4 drop-shadow-2xl cursor-pointer  ${flag === "ILLY" ? 'opacity-80 scale-95' : 'hover:scale-105' } `} onClick={(e)=> onFlagClick(e.target)} id="ILLY" src={ILLY} alt="Illyzael"></img>
+            </div>
 
         </div>
         <div className="flex  text-center justify-center">
-                    <div className={`px-12 md:mb-6 z-30 bg-indigo-400 text-white rounded-md hover:animate-pulse hover:scale-105 ${selected? '' : 'hidden' }`}>
+                    <div className={`px-12 md:mb-6 z-30 bg-indigo-400 text-white rounded-md hover:animate-pulse hover:scale-105 ${active? '' : 'hidden' }`}>
                         <button onClick={() => onClickHandle()} className=" text-2xl h-14">{w.SETUP_BUTTON}</button> 
             </div>
          </div>

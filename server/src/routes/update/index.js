@@ -67,7 +67,7 @@ router.post('/setup/:stage/', async (req,res, done) =>{
                         break;
 
                     case '3':
-                        body = { ingame: {username: req.body.username}}
+                        body.serveur = req.body.servers;
                         break;
                     default:
                         console.log("default");
