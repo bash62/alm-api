@@ -7,8 +7,24 @@
     "SETUP" : {
         "ONE": {
             "SETUP_TITLE" : "Quelle est le nom de votre personnage ingame ?",
-            "SETUP_TEXT" : "fe",
+            "SETUP_TEXT" : "",
             "SETUP_BUTTON" : "Continuer"
-                }
-            }   
-}
+                },
+        "TWO": {
+                "SETUP_TITLE" : "Quelle est le lien vers votre profil ?",
+                "SETUP_TEXT" : "",
+                "SETUP_BUTTON" : "Continuer"
+                    },
+        "FLAG": {
+            "SETUP_TITLE" : "Quelle est votre langue primaire ?",
+            "SETUP_TEXT" : "",
+            "SETUP_BUTTON" : "Continuer"
+        },
+        "SERVER" : {
+            "SETUP_TITLE" : "Choisissez vos serveurs de jeux.",
+            "SETUP_TEXT" : "",
+            "SETUP_BUTTON" : "Continuer"
+        }
+            }
+
+    }

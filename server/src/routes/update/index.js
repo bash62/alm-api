@@ -21,6 +21,7 @@ router.post('/setup/:stage/', async (req,res, done) =>{
                 username: user.ingame.username,
                 profile: user.ingame.profile,
                 serveur: user.ingame.serveur,
+                lang: user.ingame.lang,
             }
             if(req.user.userRegisterState.stage >= 1000){
                 res.status(401).send({message: "Unauthorized."})
@@ -45,19 +46,32 @@ router.post('/setup/:stage/', async (req,res, done) =>{
                         break;
 
                     case '1':
-                        
+
+                        if(req.body.profile === undefined|| req.body.profile.length < 3 || req.body.profile > 16 ){
+                            errors = true;
+                            message.message = "Veuillez vérifier le lien !"
+                            break;
+                        }
                         body.profile = req.body.profile;
                         break;
 
                     case '2':
-
-                        body.serveur = req.body.serveur
+                        let lang = ["FR","UK","ES"]
+                        console.log(req.body)
+                        if(req.body.lang === undefined || !lang.includes(req.body.lang)){
+                            errors = true;
+                            message.message = "Aucune langue selectionné."
+                            break;
+                        }
+                        body.lang = req.body.lang;
                         break;
+
                     case '3':
                         body = { ingame: {username: req.body.username}}
                         break;
                     default:
                         console.log("default");
+                        errors = true;
                         break;
                         
                 }

@@ -1,7 +1,11 @@
 import React, { useState, useEffect, Component } from "react";
 import { Navigate } from "react-router-dom";
-import {SetupFirstPage } from './SetupFirstPage';
+import {SetupUsername } from './SetupUsername';
+import {SetupProfile } from './SetupProfile';
+import {SetupFlag } from './SetupFlag';
 import useFetch from "../../models/useFetch";
+import SetupLoading from "./SetupLoading";
+import SetupServers from "./SetupServers";
 
 const Setup = ({ ...props }) => {
 
@@ -9,7 +13,7 @@ const Setup = ({ ...props }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(null);
-  const [reload, setReload] = useState();
+  const [reload, setReload] = useState(false);
   const {
     data: w,
     loading: l,
@@ -21,43 +25,55 @@ const Setup = ({ ...props }) => {
     if (props.user === "unauthorized") {
       setLoading(false);
       setLoggedIn(false);
-    } else if (props.user !== null) {
+    }
+    
+    else if (props.user !== null) {
       setLoading(false);
       setLoggedIn(true);
       setUser(props.user);
+    }
+    if(reload){
+
+      setReload(false);
+      props.checkLoginStatus();
+      console.log(props)
     }
   }, [props]);
 
  
 
   if (loading) {
-    return <div>loading...</div>;
+    return <SetupLoading />;
   }
 
-  if (!loggedIn) {
-    return <Navigate to="/">unauthorized</Navigate>;
-  } else {
-    if (loading || w === {}) {
-      return <div>Loading...</div>;
+
+  else {
+    if (!loggedIn && !loading) {
+      return <Navigate to="/">unauthorized</Navigate>;
     }
 
-    if (e) console.log(e);
-
+    if (e) return <div>ERROR...</div>
+    
   
     if(props.user.userRegisterState.stage === 0){
       return (
-        <SetupFirstPage user={user} lang={w.ONE} ></SetupFirstPage>
+        <SetupUsername user={user} lang={w.ONE} reload={setReload} ></SetupUsername>
         );
     }
 
     else if(props.user.userRegisterState.stage === 1){
       return (
-        <div>1...</div>
+        <SetupProfile user={user} lang={w.TWO} reload={setReload} ></SetupProfile>
         );
     }
-    if(props.user.userRegisterState.stage === 2){
+    else if(props.user.userRegisterState.stage === 2){
       return (
-        <SetupFirstPage user={user} lang={w.ONE}></SetupFirstPage>
+        <SetupFlag user={user} lang={w.FLAG} reload={setReload}></SetupFlag>
+        );
+    }
+    else if(props.user.userRegisterState.stage === 3){
+      return (
+        <SetupServers user={user} lang={w.SERVER} reload={setReload}></SetupServers>
         );
     }
     

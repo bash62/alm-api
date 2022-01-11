@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
+
     discord: { 
         discordTag : {
             type: String,
@@ -70,7 +71,12 @@ const UserSchema = new mongoose.Schema({
             type: Array,
             required: false,
             default: [],
-        } 
+        },
+        lang: {
+            type: String,
+            required: false,
+            default: "",
+        },
     },
     passageId: {
         type: Array,
