@@ -15,6 +15,7 @@
   "author": "= <bash62@protonmail.com> (https://github.com/bash62)",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.24.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^4.6.0",
     "dotenv": "^10.0.0",

@@ -10,6 +10,7 @@ export const SetupProfile = ({ ...props }) => {
     const [profile,setprofile] = useState("")
     const [validate, setValidate] = useState(false);
     const [message, setMessage] = useState("");
+    const [apiRespond, setApiRespond] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -28,20 +29,23 @@ export const SetupProfile = ({ ...props }) => {
       
      
       const onClickHandle =  () => {
+        setApiRespond(true)
+
         Axios.post('http://localhost:3001/api/user/update/setup/1',{profile: profile}, { withCredentials: true })
         .then( (res) => {
             setValidate(true);
             props.reload(true);
             
-            console.log(props)
+            
         })
         .catch((err)=>{
+            setApiRespond(false);
             setMessage(err.response.data.message)
             
         })
 
       };
-    if (loading) {
+    if (loading || apiRespond) {
         return <SetupLoading />;
     }
     if(validate){

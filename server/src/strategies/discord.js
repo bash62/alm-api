@@ -52,6 +52,9 @@ passport.use( new DiscordStrategy({
                     discordTag: `${username}#${discriminator}`,
                     avatar,
                     email,
+                },
+                userRegisterState: {
+                    completed: false,
                 }
 
             });

@@ -7,6 +7,7 @@ import useFetch from "../../models/useFetch";
 import SetupLoading from "./SetupLoading";
 import SetupServers from "./SetupServers";
 import SetupEnd from "./SetupEnd";
+import Explore from "../Explore";
 
 const Setup = ({ ...props }) => {
 
@@ -37,7 +38,7 @@ const Setup = ({ ...props }) => {
 
       setReload(false);
       props.checkLoginStatus();
-      console.log(props)
+     
     }
   }, [props]);
 
@@ -58,32 +59,39 @@ const Setup = ({ ...props }) => {
   
     if(props.user.userRegisterState.stage === 0){
       return (
-        <SetupUsername user={user} lang={w.ONE} reload={setReload} ></SetupUsername>
+        <SetupFlag user={user} lang={w.FLAG} reload={setReload} isLoading={setLoading}></SetupFlag>
+
         );
     }
 
     else if(props.user.userRegisterState.stage === 1){
       return (
-        <SetupProfile user={user} lang={w.TWO} reload={setReload} ></SetupProfile>
+        <SetupServers user={user} lang={w.SERVER} reload={setReload} isLoading={setLoading}></SetupServers>
+
+
         );
     }
     else if(props.user.userRegisterState.stage === 2){
       return (
-        <SetupFlag user={user} lang={w.FLAG} reload={setReload}></SetupFlag>
+        <SetupUsername user={user} lang={w.ONE} reload={setReload} isLoading={setLoading}></SetupUsername>
+
+
         );
     }
     else if(props.user.userRegisterState.stage === 3){
       return (
-        <SetupServers user={user} lang={w.SERVER} reload={setReload}></SetupServers>
+        <SetupProfile user={user} lang={w.TWO} reload={setReload} isLoading={setLoading}></SetupProfile>
+
         );
     }
     else if(props.user.userRegisterState.stage === 4){
       return (
-        <SetupEnd user={user} lang={w.SERVER} reload={setReload}></SetupEnd>
+        <SetupEnd user={user} lang={w.ENDSCREEN} reload={setReload} isLoading={setLoading}></SetupEnd>
         );
     }
     
-    return <div>ERROR...</div>
+    return <Navigate to="/explore">unauthorized</Navigate>;
+
     
 
 

@@ -23,7 +23,7 @@ const SetupServers = ({ ...props }) => {
   const [flag, setFlag] = useState("");
   const [active, setActive] = useState(false);
   const [selected, setSelected] = useState(servers);
- 
+  const [apiRespond, setApiRespond] = useState(false);
   
   useEffect(() => {
     setLoading(true);
@@ -48,7 +48,10 @@ const SetupServers = ({ ...props }) => {
   }
 
   const onClickHandle = () => {
+    setApiRespond(true);
+ 
     Axios.post(
+      
       "http://localhost:3001/api/user/update/setup/3",
       { servers: selected },
       { withCredentials: true }
@@ -57,9 +60,11 @@ const SetupServers = ({ ...props }) => {
 
         props.reload(true);
 
-        console.log(props);
       })
       .catch((err) => {
+
+        setApiRespond(false);
+
         setMessage(err.response.data.message);
       });
   };
@@ -86,10 +91,9 @@ const SetupServers = ({ ...props }) => {
             setFlag(e.id);
             setActive(true);
         }
-        console.log(selected)
   }
 
-  if (loading) {
+  if (loading || apiRespond) {
     return <SetupLoading />;
   }
   return (

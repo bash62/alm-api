@@ -15,6 +15,7 @@ export const SetupFlag = ({ ...props }) => {
   const [message, setMessage] = useState("");
   const [flag, setFlag] = useState("");
   const [selected, setSelected] = useState(false);
+  const [apiRespond, setApiRespond] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +27,9 @@ export const SetupFlag = ({ ...props }) => {
   }, [props]);
 
   const onClickHandle = () => {
+    
+    setApiRespond(true);
+
     Axios.post(
       "http://localhost:3001/api/user/update/setup/2",
       { lang: flag },
@@ -35,15 +39,16 @@ export const SetupFlag = ({ ...props }) => {
 
         props.reload(true);
 
-        console.log(props);
       })
       .catch((err) => {
+
+        setApiRespond(false);
+
         setMessage(err.response.data.message);
       });
   };
 
   const onFlagClick = (e) => {
-        console.log(e.id)
         if(flag === e.id){
             setFlag("");
             setSelected(false);
@@ -55,7 +60,7 @@ export const SetupFlag = ({ ...props }) => {
         }
   }
 
-  if (loading) {
+  if (loading || apiRespond) {
     return <SetupLoading />;
   }
   return (

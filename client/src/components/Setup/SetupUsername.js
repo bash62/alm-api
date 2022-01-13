@@ -11,6 +11,7 @@ export const SetupUsername = ({ ...props }) => {
     const [username,setUsername] = useState("")
     const [validate, setValidate] = useState(false);
     const [message, setMessage] = useState("");
+    const [apiRespond, setApiRespond] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -20,7 +21,7 @@ export const SetupUsername = ({ ...props }) => {
         }
         if(validate){
             
-            console.log("validated!!")
+            
             
             setValidate(false);
         }
@@ -29,20 +30,23 @@ export const SetupUsername = ({ ...props }) => {
       
      
       const onClickHandle =  () => {
+        setApiRespond(true);
+
         Axios.post('http://localhost:3001/api/user/update/setup/0',{username: username}, { withCredentials: true })
         .then( (res) => {
             setValidate(true);
             props.reload(true);
             
-            console.log(props)
         })
         .catch((err)=>{
+            setApiRespond(false);
+
             setMessage(err.response.data.message)
             
         })
 
       };
-    if (loading) {
+    if (loading || apiRespond) {
         return <SetupLoading />;;
     }
     if(validate){
@@ -69,7 +73,7 @@ export const SetupUsername = ({ ...props }) => {
             <div className=" ">
     
                 <div className=" flex justify-center z-20">
-                    <input onChange={(e)=> setUsername(e.target.value)} className="z-20 mt-12 w-2/3 md:w-2/5 top-8 bg-gray-600 rounded-full h-12 text-white text-center font-medium text-2xl capitalize" type="text"/>
+                    <input onChange={(e)=> setUsername(e.target.value)} className="z-20 mt-12 w-2/3 md:w-2/5 top-8 bg-gray-600 rounded-full h-12 text-white text-center font-medium text-2xl capitalize" type="text" value={username}/>
                 </div>
                 <div className="flex  text-center justify-center">
                     <div className="px-12 mt-12 z-30 bg-indigo-400 text-white rounded-md hover:animate-pulse ">

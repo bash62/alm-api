@@ -24,6 +24,11 @@
             "SETUP_TITLE" : "Choisissez vos serveurs de jeux.",
             "SETUP_TEXT" : "",
             "SETUP_BUTTON" : "Continuer"
+        },
+        "ENDSCREEN" : {
+            "SETUP_TITLE" : " une dernière petite vérification pour vérifier que vous n'êtes pas un bot ...",
+            "SETUP_TEXT" : "Une dernière petite vérification pour vérifier que vous n'êtes pas un bot ...",
+            "SETUP_BUTTON" : "Continuer"
         }
             }
 
