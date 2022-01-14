@@ -9,15 +9,22 @@ module.exports = {
       'bg': "url('./assets/bg.png')",
     
     },
+    variants: {
+      animation: ["motion-safe"]
+      },
       animation: {
         infinite_logo: " infinite_logo 1s infinite",
         background: "background 5s infinite",
         dofus: "dofus linear 0.3s 1",
         discord_loop: "discord_loop 1s ease 0s 1 normal forwards",
         flag: "scale 1s ",
+        fadeIn: "fadeIn 2s ease-in forwards"
       },
       keyframes: {
-
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 }
+        },
         flag: {
           "0%": {
             transform: "scale(1)"

@@ -1,6 +1,7 @@
 import React,{Component, useState} from "react";
 
 
+// Explore : View that present user kit or passage.
 
 const Explore = ({
     ...props

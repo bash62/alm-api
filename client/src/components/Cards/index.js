@@ -14,7 +14,7 @@ const Cards = ({
     ...otherProps
 }) => {
     return (
-        <div className="bg-slate-300">
+        <div className="bg-slate-300 snap-start ">
             <div className=" pt-8 text-center justify-center">
                 <div className="flex justify-center">
                     <h1 className=" text-2xl mx-2 md:text-5xl md:mx-5 font-bold">Le passage  </h1>

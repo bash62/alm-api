@@ -12,9 +12,10 @@ const Header = ({
     const onClick = () => {
         setActive(!active);
     }
+    
     return(
-        <header className="relative bg-yellow-400">
-            
+        <header className="snap-start sticky top-0 sticky z-40 w-full bg-yellow-400 motion-safe:animate-fadeIn">
+            <script src="./js/fadein.js"></script>
             <div className="max-w-7xl mx-auto flex items-center justify-between p-2.5 ">
             <div className="w-14">
                 <img src={Dofus} className="w-full"/>
@@ -25,8 +26,8 @@ const Header = ({
                 Menu
             </div>
             <nav className={`
-                ${!active && 'hidden'}
-                absolute flex flex-col top-full w-full left-0 z-20
+                ${!active && 'hidden'} 
+                static flex flex-col top-full w-full left-0 z-20
                 md:static md:w-auto md:flex-row md:flex
             `}>
                 <ul className="md:flex-row md:flex ">

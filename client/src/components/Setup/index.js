@@ -89,8 +89,10 @@ const Setup = ({ ...props }) => {
         <SetupEnd user={user} lang={w.ENDSCREEN} reload={setReload} isLoading={setLoading}></SetupEnd>
         );
     }
-    
-    return <Navigate to="/explore">unauthorized</Navigate>;
+    else{
+        return <Navigate to="/explore">unauthorized</Navigate>;
+
+    }
 
     
 
