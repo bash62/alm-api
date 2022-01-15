@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Germania+One&display=swap');
+
+
+@layer components{
+
+  .discord-button {
+    @apply bg-discord-button text-white rounded-full  md:rounded-md mt-2 mb-2 hover:rounded-sm text-center text-[0px] xl:text-sm  p-1 hover:bg-purple-400 
+            transition-all duration-300 ease-linear
+      ;
+  }
+  .logo-nav {
+    @apply w-56 md:w-72 xl:w-96 -mt-4 md:-mt-32 z-10 
+  }
+
+  .card-profile-background-top{
+    @apply w-full  md:w-[26rem] xl:w-[32rem] h-[10.5rem] bg-slate-500 rounded-t-lg;
+  }
+  .card-profile-background-mid{
+    @apply w-full md:w-[26rem] xl:w-[32rem] h-[9rem] bg-slate-500 ;
+  }
+
+  .card-profile-background-bottom{
+    @apply w-full md:w-[26rem] xl:w-[32rem] h-[11rem] bg-slate-500 rounded-b-lg ;
+  }
+
+  .text-bangers{
+    @apply font-bangers
+  }
+  .text-germania{
+    @apply font-germania
+  }
+}
 
 
 /* 

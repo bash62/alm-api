@@ -11,12 +11,12 @@ const LandingPageLayout = ({
     heading,
     ...props
 }) => {
+
     const [user,setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [loggedIn,setLoggedIn] = useState(null);
-    
     useEffect(() => {
-
+        
         setLoading(true);
         if(props.user === "unauthorized"){
             setLoading(false);
@@ -39,12 +39,13 @@ const LandingPageLayout = ({
         return <Navigate to="/setup">unauthorized</Navigate>
     }
     else{
+
     return (
         <div className=" snap-y snap-mandatory min-h-full bg-gray-100 font-body ">
             <div className="h-screen flex flex-col ">
                 <Header/>
 
-                <div className="relative flex items-center justify-center h-full bg-cover bg-center bg-fixed bg-no-repeat" style={{backgroundImage: `url(${Bg})`}} >
+                <div  className="relative flex items-center justify-center h-full bg-cover bg-center bg-fixed bg-no-repeat" style={{backgroundImage: `url(${Bg})`}} >
                     <div>
                         
                     </div>
@@ -68,6 +69,8 @@ const LandingPageLayout = ({
         </div>
     )}
 }
+
+
 
 LandingPageLayout.defaultProps = 'Heading';
 

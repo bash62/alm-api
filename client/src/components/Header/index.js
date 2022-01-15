@@ -14,7 +14,7 @@ const Header = ({
     }
     
     return(
-        <header className="snap-start sticky top-0 sticky z-40 w-full bg-yellow-400 ">
+        <header className="snap-start sticky top-0  z-40 w-full bg-yellow-400 ">
             
             <div className="max-w-7xl mx-auto flex items-center justify-between p-2.5 ">
             <div className="w-14">

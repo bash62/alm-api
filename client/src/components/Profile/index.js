@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../models/useFetch";
 
 //Components
-import AppHeader from "../Header/AppHeader";
+import AppHeader from "../Header/NavTest";
 import NavHeader from "../Header/NavHeader";
 import ProfileCards from "./ProfileCards";
+import PassageInfo from "./PassageInfo";
 // Explore : View that present user kit or passage.
 
 const Profile = ({
@@ -46,13 +47,22 @@ const Profile = ({
 
   return(
     <div>
-        <AppHeader lang={w.HEADER}/>
-        <NavHeader lang={w.NAV} user={user}/>
-        <ProfileCards/>
+          <AppHeader lang={w.HEADER}/>
+          <BackgrounTopPadding/>
+
+          <ProfileCards/>
+          <PassageInfo/>
+
+
+
     </div>
 )
 
 
 }
+
+const BackgrounTopPadding = () => (
+  <div className="w-full h-24 bg-white"></div>
+)
 
 export default Profile;

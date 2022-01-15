@@ -1,14 +1,29 @@
 module.exports = {
+  
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      bangers: ['Bangers', 'sans-serif'],
+      germania: ['Germania One', 'sans-serif']
+    },
     extend: {
+      colors:{
+        discord:{
+          button:"#7983F5",
+          background:"#292841",
+          backgroundPurple:"#1C1B29",
+
+        },
+
+      },
       backgroundImage: {
 
       'bg': "url('./assets/bg.png')",
-    
+      },
     },
+  },
     variants: {
       animation: ["motion-safe"]
       },
@@ -19,9 +34,16 @@ module.exports = {
         dofus: "dofus linear 0.3s 1",
         discord_loop: "discord_loop 1s ease 0s 1 normal forwards",
         flag: "scale 1s ",
-        fadeIn: "fadeIn 2s ease-in forwards"
+        fadeIn: "fadeIn 2s ease-in forwards",
+        scale: {
+          logo: 'logo'
+        }
       },
       keyframes: {
+        logo: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(100)" }
+        },
         fadeIn: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 }
@@ -87,8 +109,6 @@ module.exports = {
           },
 
         }
-      }
-    },
-  },
+      },
   plugins: [],
 }

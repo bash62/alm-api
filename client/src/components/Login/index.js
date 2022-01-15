@@ -24,7 +24,7 @@ export const Login = ({
 
     return (
         
-        <div className="bg-gray-600 h-screen py-36 min-h-2  ">
+        <div className="bg-discord-background h-screen py-36 min-h-2  ">
             
             <div className="px-2.5 mb-5 mx-5 flex text-center  ">
                 <div className="py-6 flex  md:w-full items-center justify-center ">
@@ -41,9 +41,8 @@ export const Login = ({
                             </div>
                             <div className="">
                                 
-                                <div className="relative bg-indigo-400 rounded-md hover:animate-pulse ">
-                                <button onClick={() => handleClick()} className="relative w-full h-14"><a className="w-full" href="http://localhost:3001/api/auth/discord/redirect">{w.DISCORD_CARDS_BUTTON}</a></button> 
-
+                                <div className="relative bg-discord-button rounded-md hover:animate-pulse ">
+                                <DiscordButton name={w.DISCORD_CARDS_BUTTON} />
                                 </div>
                             </div>
 
@@ -63,6 +62,16 @@ export const Login = ({
         </div>
     );
 };
+
+const DiscordButton = ({name =""}) => (
+
+  <div className="flex text-center justify-content items-center">
+    <a className="" href="http://localhost:3001/api/auth/discord/redirect"><button  className="discord-button flex items-center " >{name} </button></a>
+        
+    
+
+  </div>
+)
 
 const Discord = 
     <svg className="" width="292" height="80" viewBox="0 0 292 80" fill="none" xmlns="http://www.w3.org/2000/svg">

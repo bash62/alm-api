@@ -7,48 +7,11 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg50460"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
-   sodipodi:docname="sword.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview50462"
-     pagecolor="#ffffff"
-     bordercolor="#111111"
-     borderopacity="1"
-     inkscape:pageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="199.40411"
-     inkscape:cy="453.25544"
-     inkscape:window-width="1920"
-     inkscape:window-height="1056"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
   <defs
      id="defs50457">
-    <inkscape:path-effect
-       effect="mirror_symmetry"
-       start_point="143.04092,107.24887"
-       end_point="143.04092,110.34347"
-       center_point="143.04092,108.79617"
-       id="path-effect52493"
-       is_visible="true"
-       lpeversion="1.1"
-       mode="free"
-       discard_orig_path="false"
-       fuse_paths="false"
-       oposite_fuse="false"
-       split_items="false"
-       split_open="false" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath61362">
@@ -60,15 +23,12 @@
     </clipPath>
   </defs>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      style="display:inline;mix-blend-mode:normal">
     <g
        id="g61360"
        clip-path="url(#clipPath61362)">
       <g
-         inkscape:label="Clip"
          id="g61358">
         <g
            id="g52827"
@@ -77,7 +37,8 @@
       </g>
     </g>
     <g
-       id="g92869">
+       id="g92869"
+       transform="translate(0.55403791,0.97765364)">
       <circle
          style="fill:#1a1a1a;stroke:#808080;stroke-width:0.264583"
          id="path50567"

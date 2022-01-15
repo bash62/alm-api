@@ -1,29 +1,160 @@
 import React,{useState} from "react";
  
-import HEART from '../../assets/icons_svg/heart.svg'
-
+import Validate from '../../assets/dofus/validate.png'
+import { FaHeart, FaLink, FaLocationArrow,FaUserAlt} from "react-icons/fa";
+import { GiSwordsEmblem } from "react-icons/gi"
+import   Happy from "../../assets/emojy/happy.svg";
+import   Neutre from "../../assets/emojy/neutre.svg";
+import   Sad   from "../../assets/emojy/sad.svg";
+import   VerrySad  from "../../assets/emojy/unhappy.svg";
+import   VerryHappy from "../../assets/emojy/veryhappy.svg";
+import   Fr from "../../assets/flags/france.png";
+import   Es from "../../assets/flags/spain.png";
+import   Uk from "../../assets/flags/uk.png";
+import Sword from "../../assets/icons_svg/sword.png"
 
 const ProfileCards = ({
     ...props
 }) => {
 
-
     return(
-        <div className="h-screen bg-gray-500 flex justify-center mt-12">
-            <div className="w-full h-3/6 bg-gray-300 border border-gray-500">
-                <div className="flex justify-between p-4  ">
-                        <img  className=" w-8" src={HEART}/>
-                        <div className="text-xl text-green">En ligne </div>
-                </div>
-                <div className="flex items-center justify-center -my-12">
-                    <img className="rounded-full w-56" src="https://cdn.discordapp.com/avatars/907339231909785701/d21ec11e885bbb0a67ee05c51eb064b0"/>
+        <div className="w-full md:w-2/5 h-screen md:flex items-center xl:justify-center md:fixed  ">
 
+            <div className="card-profile-background  relative  mb-28" >
+                <div className="card-profile-background-top ">
+                    <ProfileHeaderText/>
+                    <ProfileHeaderLogo/>
                 </div>
-            </div>  
+                <ProfileInfoLink name="Tece"/>
+                <ProfilInfoStats country="FR"/>
+            </div>
 
         </div>
 
     )
 }
+
+const ProfilInfoStats = ({country="FR"}) => (
+
+    <div className="card-profile-background-bottom flex items-center justify-center ">
+       
+
+        <table class="table-auto ">
+            <tbody>
+                <tr className=" h-14">
+                    <td className="">
+                        <div className="flex">
+                            <FaLocationArrow size="24"/>
+                            <div className="mx-4  ">De</div>
+                        </div>
+                    </td>
+                    <td className="flex justify-center items-center "><div className="  "><GetFlag className=" " country={country} /></div></td>
+                </tr>
+                <tr className=" h-14">
+                    <td className="">
+                        <div className="flex">
+                            <FaUserAlt size="24"/>
+                            <div className="mx-4  ">Membre depuis</div>
+                        </div>
+                    </td>
+                    <td className="text-center text-bangers">janvier 2022</td>
+                </tr>
+
+                <td className="">
+                        <div className="flex">
+                            <GiSwordsEmblem size="24"/>
+                            <div className="mx-4  ">Nombres de commandes</div>
+                        </div>
+                    </td>
+                    <td className="text-center text-bangers">22</td>
+
+
+                
+            </tbody>
+        </table>
+
+    </div>
+
+
+)
+
+const GetFlag = ({country="FR"}) => (
+    <div>
+        {country == "FR" &&
+            <img className="w-12" src={Fr} />
+        }
+        {country == "EN" &&
+            <img className="w-12" src={Uk} />
+        }
+        {country == "ES" &&
+            <img className="w-12" src={Es} />
+        }    </div>
+)
+
+const ProfileInfoLink = ({ name="XxRamboXx",href="",title="Chasseur de perco"}) => (
+    
+    <div className="card-profile-background-mid ">
+
+        <div className=" flex justify-center items-center  ">
+            <a href={href}><FaLink size="22"/></a>
+            <h1 className="text-3xl text-gray-200 text-bold text-bangers ml-1" >{name}</h1>
+            <img className="w-12 mb-1 " src={Validate}/>
+        </div>
+        
+        <div className="flex justify-center items-center pb-1 ">
+            <p className="text-xs italic text-gray-300">{title}</p>
+        </div>
+        <ProfileRating/>
+        <Stroke/>
+        
+    </div>
+
+)
+
+const ProfileRating = () => (
+    <div className="flex items-center justify-center">
+        <Emoji src={VerrySad}score="0" />
+        <Emoji src={Sad} score="1"/>
+        <Emoji src={Neutre} score="2"/>
+        <Emoji src={Happy} score="3"/>
+        <Emoji src={VerryHappy}  score="4"/>
+    </div>
+)
+
+const Stroke = () => (
+    <div className="flex items-center px-5 py-2 justify-center ">
+        <div className="w-3/4 h-0.5 rounded-full bg-gray-800"></div>
+    </div>
+)
+
+const Emoji = ({src, score}) => (
+
+    <div>
+        {score != 2 ?
+            <img className="w-6 opacity-60" src={src}/>
+            :
+            <img className="w-10" src={src}/>
+        } 
+        
+    </div>
+)
+
+
+const ProfileHeaderLogo = ({}) =>(
+    <div className="flex items-center justify-center">
+        <div className=" w-36 h-36 absolute top-6 bg-slate-300 rounded-full">
+
+        </div>
+    </div>
+)
+
+const ProfileHeaderText = () => (
+    <div className="flex justify-between mx-8 pt-6">
+        <button><FaHeart size="26"/></button>
+        <p>En ligne</p>
+    </div>
+)
+
+
 
 export default ProfileCards;
