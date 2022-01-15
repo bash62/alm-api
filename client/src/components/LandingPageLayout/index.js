@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom';
 
 import Header from "../Header";
 import Bg from '../../assets/background.png'
-import HomePage from '../HomePage';
+import HomePage from '../Home/HomePage';
 import Footer from "../Footer";
 
 

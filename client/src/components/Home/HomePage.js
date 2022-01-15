@@ -1,6 +1,6 @@
 import React from "react";
-import Cards from "./Cards";
-import { Login } from "./Login";
+import Cards from "../Cards";
+import { Login } from "../Login";
 
 
 const HomePage = ({

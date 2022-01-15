@@ -1,7 +1,7 @@
 import React,{Component, useState} from "react";
 import {Link} from 'react-router-dom';
-import Bannier from '../assets/banieretest-1.png'
-import Dofus from '../assets/dofus_sanguinaire.png'
+import Bannier from '../../assets/banieretest-1.png'
+import Dofus from '../../assets/dofus_sanguinaire.png'
 
 
 const Header = ({
@@ -14,8 +14,8 @@ const Header = ({
     }
     
     return(
-        <header className="snap-start sticky top-0 sticky z-40 w-full bg-yellow-400 motion-safe:animate-fadeIn">
-            <script src="./js/fadein.js"></script>
+        <header className="snap-start sticky top-0 sticky z-40 w-full bg-yellow-400 ">
+            
             <div className="max-w-7xl mx-auto flex items-center justify-between p-2.5 ">
             <div className="w-14">
                 <img src={Dofus} className="w-full"/>

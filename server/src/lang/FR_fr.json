@@ -30,6 +30,17 @@
             "SETUP_TEXT" : "Une dernière petite vérification pour vérifier que vous n'êtes pas un bot ...",
             "SETUP_BUTTON" : "Continuer"
         }
+            },
+        "PROFILE" : {
+            "HEADER" : {
+                "HEADER_BUTTON": "Se connecter avec Discord"
+            },
+            "NAV" : {
+                "PLACEHOLDER": "Trouver des services",
+                "EXPLORE": "Explore",
+                "FAVORITE": "Mes favoris",
+                "ORDERS": "Commandes"
             }
+        }
 
     }

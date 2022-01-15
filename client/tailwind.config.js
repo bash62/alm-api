@@ -12,6 +12,7 @@ module.exports = {
     variants: {
       animation: ["motion-safe"]
       },
+    
       animation: {
         infinite_logo: " infinite_logo 1s infinite",
         background: "background 5s infinite",

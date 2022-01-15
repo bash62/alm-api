@@ -3,10 +3,10 @@ import React, { useState,useEffect, Component } from "react";
 
 import Axios from 'axios';
 import {Login} from './components/Login/';
-import {Test} from './components/Test';
 import LandingPageLayout from './components/LandingPageLayout';
 import Setup from "./components/Setup/";
 import Explore from "./components/Explore";
+import Profile from "./components/Profile";
 
 class App extends Component {
 
@@ -42,20 +42,37 @@ class App extends Component {
   
 
   render() {
-    return (   
-      <Router>
+    if(this.state.loggedInStatus && this.state.user ){
+      return(
+        <Router>
         <Routes >
           <Route path="/login" lang="FR" element={ <Login></Login>}></Route>
-          <Route path="/test" element={ <Test user={this.state.user} auth={this.state.loggedInStatus} ></Test>}></Route>
           <Route path="/setup" element={ <Setup user={this.state.user} auth={this.state.loggedInStatus} checkLoginStatus={() => this.checkLoginStatus()} ></Setup>}></Route>
           <Route path="/explore" element={ <Explore user={this.state.user} auth={this.state.loggedInStatus} checkLoginStatus={() => this.checkLoginStatus()} ></Explore>}></Route>
           <Route path="/" element={ <LandingPageLayout user={this.state.user} auth={this.state.loggedInStatus} heading="Passage"></LandingPageLayout>}></Route>
-
+          <Route path="/user/:id" element={<Profile user={this.state.user}/>}></Route>
         </Routes>
 
         
       </Router>
-  )
+      )
+    }
+    else{
+      return (   
+        <Router>
+          <Routes >
+            <Route path="/login" lang="FR" element={ <Login></Login>}></Route>
+            <Route path="/setup" element={ <Setup user={this.state.user} auth={this.state.loggedInStatus} checkLoginStatus={() => this.checkLoginStatus()} ></Setup>}></Route>
+            <Route path="/explore" element={ <Explore user={this.state.user} auth={this.state.loggedInStatus} checkLoginStatus={() => this.checkLoginStatus()} ></Explore>}></Route>
+            <Route path="/" element={ <LandingPageLayout user={this.state.user} auth={this.state.loggedInStatus} heading="Passage"></LandingPageLayout>}></Route>
+            <Route path="/user/:id" element={<Profile user={this.state.user}/>}></Route>
+          </Routes>
+  
+          
+        </Router>
+    )
+    }
+
 }
 
 }
