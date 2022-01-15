@@ -39,10 +39,12 @@ export const Login = ({
                                 {Discord}
 
                             </div>
-                            <div className="">
+
+                            <div className="flex justify-center ">
+
+                                <DiscordButton name={w.DISCORD_CARDS_BUTTON} />
                                 
                                 <div className="relative bg-discord-button rounded-md hover:animate-pulse ">
-                                <DiscordButton name={w.DISCORD_CARDS_BUTTON} />
                                 </div>
                             </div>
 
@@ -65,8 +67,8 @@ export const Login = ({
 
 const DiscordButton = ({name =""}) => (
 
-  <div className="flex text-center justify-content items-center">
-    <a className="" href="http://localhost:3001/api/auth/discord/redirect"><button  className="discord-button flex items-center " >{name} </button></a>
+  <div className="text-center justify-content items-center">
+    <a className="" href="http://localhost:3001/api/auth/discord/redirect"><button  className="discord-button flex items-center px-3 py-2 " >{name} </button></a>
         
     
 
