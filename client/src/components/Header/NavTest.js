@@ -21,7 +21,7 @@ const AppHeader = ({ ...props }) => {
   }
 
   return (
-    <div className="  w-full top-0 left-0 h-16 bg-discord-background ">
+    <div className="  w-full top-0 left-0 h-16 bg-discord-background xl:fixed z-30 ">
 
       <div className="pt-2 ">
         <RightNav />
@@ -35,7 +35,7 @@ const AppHeader = ({ ...props }) => {
 };
 
 const LogoPassage = () => (
-  <div className=" w-full flex items-center justify-center group">
+  <div className=" w-full flex items-center justify-center group overflow-visible">
     <img className="logo-nav " src={Logo}/>
   </div>
 )

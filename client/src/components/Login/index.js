@@ -1,20 +1,12 @@
-import React, {useState, useEffect} from "react";
+import {React,} from "react";
 import useFetch from "../../models/useFetch";
-import {Link} from 'react-router-dom';
 
 export const Login = ({
     lang,
     ...otherProps
     
 }) => {
-    const [clicked, setClicked] = useState(false);
-    
 
-    const handleClick = () =>{
-        setClicked(true);
-    }
-
-    
 
     const {data: w, loading, error} = useFetch("http://localhost:3001/api/client/lang/LOGIN/FR")
 
@@ -35,7 +27,7 @@ export const Login = ({
                            
                             <div className="text-5xl md:text-4xl font-extrabold text-black justify">{w.DISCORD_CARDS_TITLE}</div>
                             <p className="text-base md:text-lg text-gray-400 leading-snug"> {w.DISCORD_CARDS_TEXT}</p>
-                            <div className={` ${clicked ? 'animate-discord_loop' : '' } flex justify-center`}>
+                            <div className={` flex justify-center`}>
                                 {Discord}
 
                             </div>

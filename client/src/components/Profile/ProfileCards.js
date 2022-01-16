@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import {React,} from "react";
  
 import Validate from '../../assets/dofus/validate.png'
 import { FaHeart, FaLink, FaLocationArrow,FaUserAlt} from "react-icons/fa";
@@ -11,24 +11,25 @@ import   VerryHappy from "../../assets/emojy/veryhappy.svg";
 import   Fr from "../../assets/flags/france.png";
 import   Es from "../../assets/flags/spain.png";
 import   Uk from "../../assets/flags/uk.png";
-import Sword from "../../assets/icons_svg/sword.png"
 
 const ProfileCards = ({
     ...props
 }) => {
 
     return(
-        <div className="w-full md:w-2/5 h-screen md:flex items-center xl:justify-center md:fixed  ">
 
-            <div className="card-profile-background  relative  mb-28" >
-                <div className="card-profile-background-top ">
-                    <ProfileHeaderText/>
-                    <ProfileHeaderLogo/>
+        <div class="flex md:block justify-center ">
+            <div className="w-full xl:w-2/5 xl:h-1/2 xl:flex items-center xl:justify-center xl:fixed bg-black ">
+
+                <div className="card-profile-background  relative  " >
+                    <div className="card-profile-background-top ">
+                        <ProfileHeaderText/>
+                        <ProfileHeaderLogo/>
+                    </div>
+                    <ProfileInfoLink name="Tece"/>
+                    <ProfilInfoStats country="FR"/>
                 </div>
-                <ProfileInfoLink name="Tece"/>
-                <ProfilInfoStats country="FR"/>
             </div>
-
         </div>
 
     )
@@ -39,7 +40,7 @@ const ProfilInfoStats = ({country="FR"}) => (
     <div className="card-profile-background-bottom flex items-center justify-center ">
        
 
-        <table class="table-auto ">
+        <table className="table-auto ">
             <tbody>
                 <tr className=" h-14">
                     <td className="">
@@ -59,14 +60,17 @@ const ProfilInfoStats = ({country="FR"}) => (
                     </td>
                     <td className="text-center text-bangers">janvier 2022</td>
                 </tr>
-
-                <td className="">
-                        <div className="flex">
-                            <GiSwordsEmblem size="24"/>
-                            <div className="mx-4  ">Nombres de commandes</div>
-                        </div>
-                    </td>
+                <tr>
+                    <td className="">
+                            <div className="flex">
+                                <GiSwordsEmblem size="24"/>
+                                <div className="mx-4  ">Nombres de commandes</div>
+                            </div>
+                        </td>
                     <td className="text-center text-bangers">22</td>
+
+
+                </tr>
 
 
                 
@@ -80,14 +84,14 @@ const ProfilInfoStats = ({country="FR"}) => (
 
 const GetFlag = ({country="FR"}) => (
     <div>
-        {country == "FR" &&
-            <img className="w-12" src={Fr} />
+        {country === "FR" &&
+            <img className="w-12" alt="" src={Fr} />
         }
-        {country == "EN" &&
-            <img className="w-12" src={Uk} />
+        {country === "EN" &&
+            <img className="w-12" alt="" src={Uk} />
         }
-        {country == "ES" &&
-            <img className="w-12" src={Es} />
+        {country === "ES" &&
+            <img className="w-12" alt="" src={Es} />
         }    </div>
 )
 
@@ -98,7 +102,7 @@ const ProfileInfoLink = ({ name="XxRamboXx",href="",title="Chasseur de perco"}) 
         <div className=" flex justify-center items-center  ">
             <a href={href}><FaLink size="22"/></a>
             <h1 className="text-3xl text-gray-200 text-bold text-bangers ml-1" >{name}</h1>
-            <img className="w-12 mb-1 " src={Validate}/>
+            <img className="w-12 mb-1 " alt="" src={Validate}/>
         </div>
         
         <div className="flex justify-center items-center pb-1 ">
@@ -131,16 +135,16 @@ const Emoji = ({src, score}) => (
 
     <div>
         {score != 2 ?
-            <img className="w-6 opacity-60" src={src}/>
+            <img className="w-6 opacity-60" alt="" src={src}/>
             :
-            <img className="w-10" src={src}/>
+            <img className="w-10" alt="" src={src}/>
         } 
         
     </div>
 )
 
 
-const ProfileHeaderLogo = ({}) =>(
+const ProfileHeaderLogo = () =>(
     <div className="flex items-center justify-center">
         <div className=" w-36 h-36 absolute top-6 bg-slate-300 rounded-full">
 

@@ -19,7 +19,7 @@ const Cards = ({
                 <div className="flex justify-center">
                     <h1 className=" text-2xl mx-2 md:text-5xl md:mx-5 font-bold">Le passage  </h1>
                     <span className="text-2xl md:text-5xl font-italic">
-                        <Typewriter loop={5} cursor cursorStyle='|' typeSpeed={70} deleteSpeed={50} delaySpeed={1000} words={['Simple', 'Sécurisé', 'Fiable']} />
+                        <Typewriter loop={5} cursor cursorStyle='|' typeSpeed={70} deleteSpeed={50} delaySpeed={1000} words={['Simple', 'Sécurisé', 'Fiable', 'No Noob, No Arnak']} />
                     </span>
                 </div>
 

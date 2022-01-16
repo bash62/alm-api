@@ -6,7 +6,8 @@ import useFetch from "../../models/useFetch";
 import AppHeader from "../Header/NavTest";
 import NavHeader from "../Header/NavHeader";
 import ProfileCards from "./ProfileCards";
-import PassageInfo from "./PassageInfo";
+import PassageCardsContainer from "./PassageCardsContainer";
+import PassageAvis from "./PassageAvis";
 // Explore : View that present user kit or passage.
 
 const Profile = ({
@@ -48,10 +49,12 @@ const Profile = ({
   return(
     <div>
           <AppHeader lang={w.HEADER}/>
+          <div className="w-full h-24"></div>
           <BackgrounTopPadding/>
-
           <ProfileCards/>
-          <PassageInfo/>
+          <PassageCardsContainer/>
+          <PassageAvis/>
+
 
 
 
